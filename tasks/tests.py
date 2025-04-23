@@ -99,3 +99,9 @@ class TaskDetailViewTests(APITestCase):
         response = self.client.get("/tasks/2/")
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
+    def test_update_task(self):
+        """Tests if a task can be updated."""
+
+        response = self.client.patch("/tasks/1/", {"title":"new title"})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
