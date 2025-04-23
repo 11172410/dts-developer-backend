@@ -116,3 +116,9 @@ class TaskDetailViewTests(APITestCase):
 
         response = self.client.delete("/tasks/1/")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_delete_non_existent_task(self):
+        """Tests that a non-existent task cannot be deleted."""
+
+        response = self.client.delete("/tasks/2/")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
