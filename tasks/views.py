@@ -1,6 +1,6 @@
 from rest_framework import generics
 from .models import Task
-from .serializers import TaskSerializer
+from .serializers import TaskListSerializer
 
 # Create your views here.
 
@@ -11,7 +11,7 @@ class TaskList(generics.ListCreateAPIView):
     """
 
     queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+    serializer_class = TaskListSerializer
 
 
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -20,4 +20,4 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     """
 
     queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+    serializer_class = TaskListSerializer
