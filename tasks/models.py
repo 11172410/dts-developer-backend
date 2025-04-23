@@ -14,7 +14,7 @@ class Task(models.Model):
     due_time = models.TimeField()
 
     class Meta:
-        ordering = ["due_date"]
+        ordering = ["-due_date"]
 
     def __str__(self):
         return f"{self.title} | due: {self.due_date}"
