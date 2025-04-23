@@ -75,3 +75,20 @@ class TaskListViewTests(APITestCase):
         )
 
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
+class TaskDetailViewTests(APITestCase):
+    def setUp(self):
+        Task.objects.create(
+            title="test title",
+            description="test",
+            status=False,
+            due_date="2025-05-01",
+            due_time="12:00",
+        )
+
+    def test_retrieve_task_by_id(self):
+        """Tests if a single task can be retrieved by id."""
+        
+        response = self.client.get("/tasks/1/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
