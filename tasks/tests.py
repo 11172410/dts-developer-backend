@@ -105,3 +105,8 @@ class TaskDetailViewTests(APITestCase):
         response = self.client.patch("/tasks/1/", {"title":"new title"})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
+    def test_update_non_existent_task(self):
+        """Tests updating a non-existent task."""
+
+        response = self.client.patch("/tasks/2/", {"title":"test title"})
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
