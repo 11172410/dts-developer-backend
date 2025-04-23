@@ -1,3 +1,4 @@
+from datetime import date
 from rest_framework import serializers
 from .models import Task
 
@@ -15,6 +16,15 @@ class TaskListSerializer(serializers.ModelSerializer):
         rep = super().to_representation(instance)
         rep["title"] = rep["title"].capitalize()
         return rep
+
+    def validate_due_date(self, value):
+        """
+        Prevents tasks from being set in the past
+        """
+        today = date.today()
+        if value < today:
+            raise serializers.ValidationError("Tasks cannot be set in the past.")
+        return value
 
     class Meta:
         model = Task
