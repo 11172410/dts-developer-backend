@@ -19,7 +19,8 @@ class TaskListSerializer(serializers.ModelSerializer):
 
     def validate_due_date(self, value):
         """
-        Prevents tasks from being set in the past
+        Prevents tasks from being set in the past by comparing
+        the value of the task with the current date.
         """
         today = date.today()
         if value < today:
