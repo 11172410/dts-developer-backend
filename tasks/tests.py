@@ -35,7 +35,7 @@ class TaskListViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_create_task_without_description(self):
-        """Tests if a new task can be created without a description"""
+        """Tests if a new task can be created without a description as description is set as optional."""
 
         response = self.client.post(
             "/tasks/",
