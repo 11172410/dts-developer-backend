@@ -2,8 +2,9 @@ from rest_framework import serializers
 from .models import Task
 
 
-class TaskSerializer(serializers.ModelSerializer):
+class TaskListSerializer(serializers.ModelSerializer):
 
+    status = serializers.ReadOnlyField(source="task.status")
     # Give human-readable date format for task
     due_date = serializers.DateField(format="%Y-%m-%d")
     # Give human-readable time format for task
