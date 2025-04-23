@@ -110,3 +110,9 @@ class TaskDetailViewTests(APITestCase):
 
         response = self.client.patch("/tasks/2/", {"title":"test title"})
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+    
+    def test_delete_task(self):
+        """Tests that a task can be deleted successfully"""
+
+        response = self.client.delete("/tasks/1/")
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
