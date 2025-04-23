@@ -19,3 +19,14 @@ class TaskListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = ["id", "title", "description", "status", "due_date", "due_time"]
+
+
+class TaskDetailSerializer(serializers.ModelSerializer):
+    # Give human-readable date format for task
+    due_date = serializers.DateField(format="%Y-%m-%d")
+    # Give human-readable time format for task
+    due_time = serializers.TimeField(format="%H:%M")
+
+    class Meta:
+        model = Task
+        fields = ["id", "title", "description", "status", "due_date", "due_time"]
