@@ -92,7 +92,7 @@ class TaskDetailViewTests(APITestCase):
 
         response = self.client.get("/tasks/1/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-    
+
     def test_retrieve_non_existent_task(self):
         """Tests that a non-existent task will not be retrieved."""
 
@@ -102,15 +102,15 @@ class TaskDetailViewTests(APITestCase):
     def test_update_task(self):
         """Tests if a task can be updated."""
 
-        response = self.client.patch("/tasks/1/", {"title":"new title"})
+        response = self.client.patch("/tasks/1/", {"title": "new title"})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        
+
     def test_update_non_existent_task(self):
         """Tests updating a non-existent task."""
 
-        response = self.client.patch("/tasks/2/", {"title":"test title"})
+        response = self.client.patch("/tasks/2/", {"title": "test title"})
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-    
+
     def test_delete_task(self):
         """Tests that a task can be deleted successfully"""
 
