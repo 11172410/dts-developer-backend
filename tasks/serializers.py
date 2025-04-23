@@ -4,7 +4,7 @@ from .models import Task
 
 class TaskListSerializer(serializers.ModelSerializer):
 
-    status = serializers.ReadOnlyField(source="task.status")
+    status = serializers.ReadOnlyField()
     # Give human-readable date format for task
     due_date = serializers.DateField(format="%Y-%m-%d")
     # Give human-readable time format for task
