@@ -6,6 +6,8 @@ from .models import Task
 
 
 class TaskListViewTests(APITestCase):
+    """Tests for the TaskList generic view."""
+
     def setUp(self):
         Task.objects.create(
             title="test title",
@@ -35,7 +37,8 @@ class TaskListViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_create_task_without_description(self):
-        """Tests if a new task can be created without a description as description is set as optional."""
+        """Tests if a new task can be created without a description
+        as description is set as optional."""
 
         response = self.client.post(
             "/tasks/",
@@ -78,6 +81,8 @@ class TaskListViewTests(APITestCase):
 
 
 class TaskDetailViewTests(APITestCase):
+    """List of tests for Task Detail view."""
+
     def setUp(self):
         Task.objects.create(
             title="test title",
