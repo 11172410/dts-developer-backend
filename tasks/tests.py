@@ -89,6 +89,13 @@ class TaskDetailViewTests(APITestCase):
 
     def test_retrieve_task_by_id(self):
         """Tests if a single task can be retrieved by id."""
-        
+
         response = self.client.get("/tasks/1/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+    
+    def test_retrieve_non_existent_task(self):
+        """Tests that a non-existent task will not be retrieved."""
+
+        response = self.client.get("/tasks/2/")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
