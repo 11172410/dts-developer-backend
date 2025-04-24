@@ -2,6 +2,8 @@
 
 This is the task manager API for the coding challenge for the MOJ Junior Software Developer. The backend for the task manager application is written in the Python language, using the Django REST Framework to create a RESTful API.
 
+To view the browseable API, please type the command `python3 manage.py runserver`. No log in is required to access all functionality.
+
 ## Planning
 
 ### Data Model
