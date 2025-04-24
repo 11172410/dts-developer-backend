@@ -32,3 +32,7 @@ This task manager API was created using **Django 5.2** and **Django Rest Framewo
 
 - **dj-database-url 2.3.0** - to communicate with the PostgreSQL database using a URL
 - **psycopg2-binary** - required when using postgreSQL databases. The binary version is downloaded so it is local to the project.
+
+## Testing
+
+Unit tests were created within the **tasks** app to test the CRUD functionality of the API. Tests were done using DRF's **APITestCase** class and **status** modules. Tests can be found within tasks > tests.py. To run tests, please use the command `python3 manage.py test`.
