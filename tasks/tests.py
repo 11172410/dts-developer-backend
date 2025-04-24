@@ -53,7 +53,9 @@ class TaskListViewTests(APITestCase):
         self.assertEqual(response.data["description"], "")
 
     def test_create_task_with_missing_required_fields(self):
-        """Tests that a task will not be created if a required field is missing."""
+        """
+        Tests that a task will not be created if a required field is missing.
+        """
 
         response = self.client.post(
             "/tasks/",
@@ -66,7 +68,9 @@ class TaskListViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_create_task_set_in_the_past(self):
-        """Tests that a task will not be created if user tries to set task in the past"""
+        """
+        Tests that a task will not be created if user tries to set task in the past
+        """
 
         response = self.client.post(
             "/tasks/",

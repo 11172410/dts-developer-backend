@@ -7,7 +7,8 @@ from .serializers import TaskListSerializer, TaskDetailSerializer
 
 class TaskList(generics.ListCreateAPIView):
     """
-    Generic view for task list, where all tasks are retrieved as a list. Tasks can also be created with this API endpoint.
+    Generic view for task list, where all tasks are retrieved as a list.
+    Tasks can also be created with this API endpoint.
     """
 
     queryset = Task.objects.all()
@@ -16,7 +17,8 @@ class TaskList(generics.ListCreateAPIView):
 
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Generic view to allow individual tasks to be retrieved, updated and deleted by their id.
+    Generic view to allow individual tasks to be retrieved,
+    updated and deleted by their id.
     """
 
     queryset = Task.objects.all()

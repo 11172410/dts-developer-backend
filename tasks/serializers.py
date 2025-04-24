@@ -24,12 +24,14 @@ class TaskListSerializer(serializers.ModelSerializer):
         """
         today = date.today()
         if value < today:
-            raise serializers.ValidationError("Tasks cannot be set in the past.")
+            raise serializers.ValidationError(
+                "Tasks cannot be set in the past.")
         return value
 
     class Meta:
         model = Task
-        fields = ["id", "title", "description", "status", "due_date", "due_time"]
+        fields = ["id", "title", "description",
+                  "status", "due_date", "due_time"]
 
 
 class TaskDetailSerializer(serializers.ModelSerializer):
@@ -40,4 +42,5 @@ class TaskDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ["id", "title", "description", "status", "due_date", "due_time"]
+        fields = ["id", "title", "description",
+                  "status", "due_date", "due_time"]
