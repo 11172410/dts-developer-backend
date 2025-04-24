@@ -25,3 +25,10 @@ Below is each of the API endpoints with it's HTTP method, URL and the generic vi
 | POST        | /tasks/     | create         | create a new task                | ListCreateAPIView            |
 | PUT         | /tasks/:id/ | update         | edit a task by id                | RetrieveUpdateDestroyAPIView |
 | DELETE      | /tasks/:id/ | delete         | delete a task by id              | RetrieveUpdateDestroyAPIView |
+
+## Frameworks, libraries and dependencies
+
+This task manager API was created using **Django 5.2** and **Django Rest Framework 3.16.0**. Other libraries include:
+
+- **dj-database-url 2.3.0** - to communicate with the PostgreSQL database using a URL
+- **psycopg2-binary** - required when using postgreSQL databases. The binary version is downloaded so it is local to the project.
